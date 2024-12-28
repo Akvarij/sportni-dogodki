@@ -1,0 +1,51 @@
+.month-group {
+  width: 75%;
+}
+
+.month-group h3 {
+  display: flex;
+  justify-content: center;
+  margin: 1.75rem;
+}
+.event {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem; /* Increased padding */
+  margin-bottom: 0.5rem;
+  min-height: 75px; /* Set a minimum height */
+  box-shadow: 0 0 10px 0 rgba(78, 89, 105, 0.09);
+}
+
+.event:hover {
+  border-radius: 0.5rem;
+  background-color: rgb(240, 253, 255);
+}
+
+h5 {
+  margin: 0;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+h4 {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "server", // Output directory for compiled files
+    "rootDir": "./src", // Input directory for source files
+    "module": "commonjs", // Ensure compatibility with Node.js
+    "target": "es6"
+    // other options
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

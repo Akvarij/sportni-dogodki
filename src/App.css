@@ -1,0 +1,17 @@
+body {
+  font-family: "Inconsolata", monospace;
+}
+
+#page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 0 17px 0 rgba(16, 40, 73, 0.09);
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  height: auto;
+}
