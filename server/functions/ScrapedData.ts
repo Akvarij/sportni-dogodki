@@ -1,4 +1,4 @@
-import { Event } from "../../shared/types/events";
+import { Event } from "../../shared/types/event";
 import { scrapeWebsite } from "../utils/scrapingUtils";
 import { SCRAPING_CONFIG } from "../config/scrapingConfig";
 

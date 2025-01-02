@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
-import { Event } from "../../shared/types/events";
+import { Event } from "../../shared/types/event";
 import { formatDate } from "./dateUtils";
 
 puppeteer.use(StealthPlugin());
@@ -29,6 +29,12 @@ export async function scrapeWebsite(
           "h4.mec-event-title a.mec-color-hover"
         );
 
+        const imgElement = article.querySelector("img");
+        const srcset = imgElement?.getAttribute("srcset") || "";
+
+        const matches = [...srcset.matchAll(/\/([a-z]+)-\d+x\d+\.\w+/gi)];
+        const logo = matches.length > 0 ? matches[0][1] : "";
+
         const date =
           dateElement instanceof HTMLElement
             ? dateElement.textContent?.trim() || ""
@@ -42,7 +48,7 @@ export async function scrapeWebsite(
             ? titleElement.href || ""
             : "";
 
-        data.push({ date, title, link });
+        data.push({ date, title, link, logo });
       });
 
       return data;

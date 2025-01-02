@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Event } from "../../shared/types/events";
+import { Event } from "../../shared/types/event";
 
 export default function getEvents() {
   const [events, setEvents] = useState<Event[]>([]);

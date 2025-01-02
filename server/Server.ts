@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { getScrapedData } from "./Functions/ScrapedData";
+import { getScrapedData } from "./functions/ScrapedData";
 
 const app = express();
 const port = 5000;

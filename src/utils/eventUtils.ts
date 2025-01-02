@@ -1,4 +1,4 @@
-import { Event, GroupedEvents } from "../../shared/types/events";
+import { Event, GroupedEvents } from "../../shared/types/event";
 
 const monthNames = [
   "januar",
