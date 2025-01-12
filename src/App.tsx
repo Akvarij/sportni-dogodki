@@ -1,10 +1,15 @@
+import { useEffect } from "react";
 import MonthGroup from "./components/MonthGroup/MonthGroup";
-import getEvents from "./hooks/getEvents";
+import getEvents from "./hooks/useEvents";
 import groupEventsByMonth from "./utils/eventUtils";
 import "./App.css";
 
 export default function App() {
   const { events, fetchEvents } = getEvents();
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
 
   const groupedEvents = groupEventsByMonth(events);
 
@@ -17,7 +22,6 @@ export default function App() {
           events={events}
         />
       ))}
-      <button onClick={fetchEvents}>Scrape</button>
     </main>
   );
 }
