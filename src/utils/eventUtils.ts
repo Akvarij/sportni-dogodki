@@ -18,11 +18,11 @@ const monthNames = [
 export default function groupEventsByMonth(events: Event[]): GroupedEvents {
   return events.reduce((groups, event) => {
     const parts = event.date.split(" ");
-    let day: number, month: number, year: number;
+    let month: number, year: number;
 
     if (parts.length === 3) {
       // Single day event: "07 julij 2025"
-      [day, , year] = parts.map(Number);
+      [, , year] = parts.map(Number);
       month = monthNames.indexOf(parts[1]);
     } else if (parts.length === 5) {
       // Multi-day event: "07 - 08 julij 2025"
