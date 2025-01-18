@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { Event } from "../../shared/types/event";
 
-const API = "/api/events";
+const API = "http://localhost:3000/api/events";
 
 export function useEvents() {
   const [events, setEvents] = useState<Event[]>([]);
