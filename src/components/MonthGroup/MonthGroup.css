@@ -11,10 +11,10 @@
   display: flex;
   flex-direction: row;
   padding-bottom: 0.5rem;
-  padding-left: 0.75rem; /* Increased padding */
   margin-bottom: 0.5rem;
   min-height: 75px; /* Set a minimum height */
   box-shadow: 0 0 10px 0 rgba(78, 89, 105, 0.09);
+  border-radius: 15px;
   list-style-type: none;
 }
 

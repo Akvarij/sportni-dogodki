@@ -31,7 +31,7 @@ export async function scrapeWebsite(
         const srcset = imgElement?.getAttribute("srcset") || "";
 
         const matches = [...srcset.matchAll(/\/([a-z]+)-\d+x\d+\.\w+/gi)];
-        const logo = matches.length > 0 ? matches[0][1] : "";
+        const category = matches.length > 0 ? matches[0][1] : "";
 
         return {
           date:
@@ -46,7 +46,7 @@ export async function scrapeWebsite(
             titleElement instanceof HTMLAnchorElement
               ? titleElement.href || ""
               : "",
-          logo,
+          category,
         };
       });
     }, selector);

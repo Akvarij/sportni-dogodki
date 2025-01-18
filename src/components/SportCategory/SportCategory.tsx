@@ -4,9 +4,10 @@ import {
 } from "react-icons/pi";
 
 import TrailRunning from "../../../public/TrailRunning.png";
+import Triatlon from "../../../public/Triatlon.png";
 
-export default function SportLogo({ logo }: { logo: string }) {
-  switch (logo) {
+export default function SportCategory({ category }: { category: string }) {
+  switch (category) {
     case "kolo":
       return <PiPersonSimpleBikeLight size={30} />;
     case "trail":
@@ -18,6 +19,13 @@ export default function SportLogo({ logo }: { logo: string }) {
       );
     case "tek":
       return <PiPersonSimpleRunLight size={30} />;
+    case "triatlon":
+      return (
+        <img
+          src={Triatlon}
+          alt="Triatlon"
+        />
+      );
     default:
       return null;
   }

@@ -16,7 +16,7 @@ async function getDatabase(): Promise<Database> {
       date TEXT,
       title TEXT,
       link TEXT,
-      logo TEXT
+      category TEXT
     )`);
   }
   return db;
@@ -47,12 +47,12 @@ export async function scrapeAndStoreData(): Promise<void> {
 
     // Batch insert
     const stmt = await db.prepare(
-      `INSERT INTO scraped_data (date, title, link, logo) VALUES (?, ?, ?, ?)`
+      `INSERT INTO scraped_data (date, title, link, category) VALUES (?, ?, ?, ?)`
     );
 
     await db.run("BEGIN TRANSACTION");
     for (const event of events) {
-      await stmt.run(event.date, event.title, event.link, event.logo);
+      await stmt.run(event.date, event.title, event.link, event.category);
     }
     await db.run("COMMIT");
 

@@ -1,4 +1,4 @@
-import SportLogo from "../SportLogo/SportLogo";
+import SportCategory from "../SportCategory/SportCategory";
 import { Event } from "../../../shared/types/event";
 
 import "./MonthGroup.css";
@@ -26,7 +26,7 @@ export default function MonthGroup({
               className="event-link"
             >
               <div className="icon">
-                <SportLogo logo={event.logo} />
+                <SportCategory category={event.category} />
               </div>
               <div className="event-info">
                 <h5>{event.date}</h5>
