@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "build": "apt-get install -y libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 && vite build && ts-node api/Server.ts",
+    "build": "npx puppeteer browsers install chrome && vite build && ts-node api/Server.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "start:server": "ts-node api/Server.ts"
