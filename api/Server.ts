@@ -16,8 +16,6 @@ async function updateData() {
   }
 }
 
-setInterval(updateData, 3600000);
-
 updateData(); // Initial data update
 
 app.get("/api/events", async (req, res) => {
