@@ -1,6 +1,10 @@
 import express from "express";
 import cors from "cors";
-import { getScrapedData, scrapeAndStoreData } from "./utils/scrapedData";
+import {
+  getScrapedData,
+  scrapeAndStoreData,
+  closeDatabase,
+} from "./utils/databaseUtils";
 
 const app = express();
 
@@ -11,6 +15,8 @@ async function updateData() {
   try {
     await scrapeAndStoreData();
     console.log("Data updated successfully");
+
+    await closeDatabase();
   } catch (error) {
     console.error("Error updating data:", error);
   }

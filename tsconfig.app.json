@@ -25,7 +25,7 @@
   "include": [
     "src",
     "src/components/Scraper.ts",
-    "api/Scraper.js",
+    "server/Scraper.js",
     "shared/types"
   ]
 }
