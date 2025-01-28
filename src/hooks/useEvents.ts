@@ -18,7 +18,7 @@ export function useEvents() {
       const data = await response.json();
       setEvents(data);
     } catch (err) {
-      setError("Failed to fetch events. Please try again later.");
+      setError("Failed to fetch events.");
       console.error("Error fetching events:", err);
     }
   }, []);

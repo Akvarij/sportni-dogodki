@@ -1,6 +1,9 @@
 import { Event } from "../../shared/types/event";
 import { PrismaClient } from "@prisma/client";
 
+import { scrapeWebsite } from "./scrapingUtils";
+import { SCRAPING_CONFIG } from "../config/scrapingConfig";
+
 const prisma = new PrismaClient();
 
 export async function getScrapedData(): Promise<Event[]> {
@@ -15,15 +18,23 @@ export async function getScrapedData(): Promise<Event[]> {
 
 export async function scrapeAndStoreData(): Promise<void> {
   try {
-    const { scrapeWebsite } = await import("./scrapingUtils");
-    const { SCRAPING_CONFIG } = await import("../config/scrapingConfig");
+    const existingEvents: Event[] = await prisma.event.findMany();
 
     const events = await scrapeWebsite(
       SCRAPING_CONFIG.url,
       SCRAPING_CONFIG.selector
     );
 
-    for (const event of events) {
+    const newEvents = events.filter(
+      (item) =>
+        !existingEvents.some(
+          (existingEvent) =>
+            existingEvent.title === item.title &&
+            existingEvent.date === item.date
+        )
+    );
+
+    for (const event of newEvents) {
       await prisma.event.create({
         data: {
           date: event.date,
@@ -34,7 +45,7 @@ export async function scrapeAndStoreData(): Promise<void> {
       });
     }
 
-    console.log(`Scraped and stored ${events.length} events.`);
+    console.log(`Scraped and stored ${newEvents.length} events.`);
   } catch (error) {
     console.error("Error in scrapeAndStoreData:", error);
   }
