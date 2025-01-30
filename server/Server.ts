@@ -1,28 +1,14 @@
 import express from "express";
 import cors from "cors";
-import {
-  getScrapedData,
-  scrapeAndStoreData,
-  closeDatabase,
-} from "./utils/databaseUtils";
+import { CronJob } from "cron";
+import { getScrapedData, updateData } from "./utils/databaseUtils";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-async function updateData() {
-  try {
-    await scrapeAndStoreData();
-    console.log("Data updated successfully");
-
-    await closeDatabase();
-  } catch (error) {
-    console.error("Error updating data:", error);
-  }
-}
-
-updateData(); // Initial data update
+new CronJob("0 8 * * *", updateData, null, true);
 
 app.get("/api/events", async (req, res) => {
   try {

@@ -16,6 +16,17 @@ export async function getScrapedData(): Promise<Event[]> {
   }
 }
 
+export async function updateData() {
+  try {
+    await scrapeAndStoreData();
+    console.log("Data updated successfully");
+
+    await closeDatabase();
+  } catch (error) {
+    console.error("Error updating data:", error);
+  }
+}
+
 export async function scrapeAndStoreData(): Promise<void> {
   try {
     const existingEvents: Event[] = await prisma.event.findMany();
