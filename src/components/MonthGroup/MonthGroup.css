@@ -60,8 +60,6 @@ h4 {
   flex-grow: 1;
 }
 
-/* Existing styles */
-
 /* Add these new styles at the end of the file */
 @media screen and (max-width: 768px) {
   .month-group .event .icon {
