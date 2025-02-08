@@ -9,6 +9,7 @@ import { Event } from "../shared/types/event";
 export default function App() {
   const { events, fetchEvents } = useEvents();
   const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
+  const [activeFilter, setActiveFilter] = useState("");
 
   useEffect(() => {
     fetchEvents();
@@ -21,12 +22,14 @@ export default function App() {
   const menuItems = [...new Set(events.map((event) => event.category))];
 
   const handleFilter = (category: string) => {
-    if (category === "all") {
+    if (category === "all" || category === activeFilter) {
+      setActiveFilter("");
       setFilteredEvents(events);
     } else {
       const newFilteredEvents = events.filter(
         (event) => event.category === category
       );
+      setActiveFilter(category);
       setFilteredEvents(newFilteredEvents);
     }
   };
@@ -38,6 +41,7 @@ export default function App() {
       <FilterButtons
         events={menuItems}
         setFilteredEvents={handleFilter}
+        activeFilter={activeFilter}
       />
       {Object.entries(groupedEvents).map(([month, monthEvents]) => (
         <MonthGroup

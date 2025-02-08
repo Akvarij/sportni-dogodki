@@ -52,10 +52,31 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 40px; /* Increased from 5% to a fixed width */
+  min-width: 40px;
   margin-right: 1rem;
 }
 
 .event-info {
   flex-grow: 1;
+}
+
+/* Existing styles */
+
+/* Add these new styles at the end of the file */
+@media screen and (max-width: 768px) {
+  .month-group .event .icon {
+    min-width: 0;
+    margin-right: 0;
+    padding: 0%;
+    max-width: 40px;
+  }
+
+  .month-group {
+    width: 100%;
+    padding: 0%;
+  }
+
+  ul {
+    padding: 0;
+  }
 }

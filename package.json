@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && ts-node server/Server.ts",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "start:server": "npm run db:push && ts-node server/Server.ts",

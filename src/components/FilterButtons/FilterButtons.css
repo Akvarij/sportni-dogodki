@@ -27,3 +27,39 @@
   border-radius: 15px;
   background-color: rgb(240, 253, 255);
 }
+
+.isActive {
+  border-radius: 15px;
+  background-color: rgb(240, 253, 255);
+  width: 15%;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.isActive h4 {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .filter-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .filter-button {
+    width: 100%;
+  }
+
+  .filter-button:hover {
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .isActive {
+    width: 100%;
+  }
+}
