@@ -5,12 +5,17 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run dev",
+    "build": "vite build",
+    "start": "npm run db:push && node server/Server.js",
+    "heroku-postbuild": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
     "start:server": "npm run db:push && ts-node server/Server.ts",
     "db:push": "prisma db push",
     "studio": "prisma studio"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.1.0",
