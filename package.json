@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "npm run db:push && ts-node server/Server.ts",
+    "start": "serve -s dist",
     "heroku-postbuild": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -27,6 +27,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
+    "serve": "^14.2.4",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   },
