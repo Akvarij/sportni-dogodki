@@ -8,6 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+updateData();
 new CronJob("0 8 * * *", updateData, null, true);
 
 app.get("/api/events", async (req, res) => {
@@ -26,6 +27,6 @@ export default app;
 if (require.main === module) {
   const port = process.env.PORT || 5000;
   app.listen(port, () => {
-    console.log("Server running");
+    console.log("Server running at port", port);
   });
 }

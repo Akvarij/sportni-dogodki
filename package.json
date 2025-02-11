@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "start": "serve -s dist",
+    "start:frontend": "npm run build && npm run preview",
+    "start:server": "npm run db:push && ts-node server/Server.ts",
     "heroku-postbuild": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",

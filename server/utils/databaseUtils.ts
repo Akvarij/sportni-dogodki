@@ -30,7 +30,6 @@ export async function updateData() {
 export async function scrapeAndStoreData(): Promise<void> {
   try {
     const existingEvents: Event[] = await prisma.event.findMany();
-
     const events = await scrapeWebsite(
       SCRAPING_CONFIG.url,
       SCRAPING_CONFIG.selector

@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { Event } from "../../shared/types/event";
 
-const API = "http://localhost:5000/api/events";
+const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 export function useEvents() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -11,7 +11,7 @@ export function useEvents() {
     setError(null);
 
     try {
-      const response = await fetch(API);
+      const response = await fetch(`${API}/api/events`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
