@@ -1,16 +1,11 @@
 {
   "name": "sportni-dogodki",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "build": "vite build",
-    "start:frontend": "npm run build && npm run preview",
-    "start:server": "npm run db:push && ts-node server/Server.ts",
-    "heroku-postbuild": "npm run build",
-    "db:push": "prisma db push"
+    "start": "cd backend && npm start",
+    "heroku-postbuild": "cd backend && npm install && npm run build && cd ../frontend && npm install && npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "engines": {
+    "node": "14.x"
+  }
 }
