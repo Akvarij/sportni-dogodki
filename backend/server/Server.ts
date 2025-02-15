@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import { CronJob } from "cron";
 import { getScrapedData, updateData } from "./utils/databaseUtils";
 
@@ -7,6 +8,12 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+
+app.get("*", (_, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+});
 
 updateData();
 new CronJob("0 8 * * *", updateData, null, true);
