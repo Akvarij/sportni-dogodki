@@ -1,55 +1,16 @@
 {
   "name": "sportni-dogodki",
-  "private": true,
-  "version": "0.0.0",
-  "type": "commonjs",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
-    "start": "serve -s dist",
     "start:frontend": "npm run build && npm run preview",
     "start:server": "npm run db:push && ts-node server/Server.ts",
     "heroku-postbuild": "npm run build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "db:push": "prisma db push",
-    "studio": "prisma studio"
+    "db:push": "prisma db push"
   },
-  "dependencies": {
-    "@fontsource/ibm-plex-mono": "^5.1.0",
-    "@fontsource/inconsolata": "^5.1.0",
-    "@prisma/client": "^6.2.1",
-    "axios": "^1.7.9",
-    "cors": "^2.8.5",
-    "cron": "^3.5.0",
-    "express": "^4.21.2",
-    "puppeteer": "^23.11.1",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.4.0",
-    "serve": "^14.2.4",
-    "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.15.0",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.10.2",
-    "@types/puppeteer": "^5.4.7",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.15.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
-    "globals": "^15.12.0",
-    "prisma": "^6.2.1",
-    "ts-node": "^10.9.2",
-    "typescript": "~5.6.2",
-    "typescript-eslint": "^8.15.0",
-    "vite": "^6.0.0"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
