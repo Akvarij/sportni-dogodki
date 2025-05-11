@@ -44,11 +44,7 @@ export default function App() {
         activeFilter={activeFilter}
       />
       {Object.entries(groupedEvents).map(([month, monthEvents]) => (
-        <MonthGroup
-          key={month}
-          month={month}
-          events={monthEvents as Event[]}
-        />
+        <MonthGroup key={month} month={month} events={monthEvents as Event[]} />
       ))}
     </main>
   );

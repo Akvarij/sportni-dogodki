@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { Event } from "../../types/event";
 
-const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API = import.meta.env.REACT_APP_API_URL || "http://localhost:5000";
 
 export function useEvents() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -16,6 +16,7 @@ export function useEvents() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
+      console.log(data);
       setEvents(data);
     } catch (err) {
       setError("Failed to fetch events.");
