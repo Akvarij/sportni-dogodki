@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "type": "commonjs",
   "scripts": {
-    "start:server": "npm run db:push && ts-node server/Server.ts",
-    "heroku-postbuild": "npm run build",
+    "build": "npm run db:push && ts-node server/Server.ts",
     "lint": "eslint .",
     "db:push": "prisma db push",
     "studio": "prisma studio"
