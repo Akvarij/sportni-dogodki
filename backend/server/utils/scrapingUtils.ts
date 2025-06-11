@@ -13,7 +13,16 @@ export async function scrapeWebsite(
   try {
     browser = await puppeteer.launch({
       headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-first-run",
+        "--no-zygote",
+        "--deterministic-fetch",
+        "--disable-features=VizDisplayCompositor",
+      ],
     });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "load", timeout: 60000 });
