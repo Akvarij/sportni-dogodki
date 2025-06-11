@@ -3,7 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "commonjs",
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "scripts": {
+    "start": "npm run db:push && npx ts-node server/Server.ts",
     "build": "npm run db:push && ts-node server/Server.ts",
     "lint": "eslint .",
     "db:push": "prisma db push",
@@ -11,6 +16,9 @@
   },
   "dependencies": {
     "@prisma/client": "^6.3.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
     "cors": "^2.8.5",
     "cron": "^3.5.0",
     "express": "^4.21.2",
@@ -18,19 +26,16 @@
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.10.2",
     "@types/puppeteer": "^5.4.7",
     "eslint": "^9.15.0",
     "globals": "^15.12.0",
     "prisma": "^6.3.1",
-    "ts-node": "^10.9.2",
-    "typescript": "~5.6.2",
     "typescript-eslint": "^8.15.0"
   }
 }
