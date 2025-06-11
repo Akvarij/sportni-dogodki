@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { Event } from "../../types/event";
 
-const API = import.meta.env.REACT_APP_API_URL || "http://localhost:5000";
+const API = import.meta.env.VITE_API_URL;
 
 export function useEvents() {
   const [events, setEvents] = useState<Event[]>([]);
