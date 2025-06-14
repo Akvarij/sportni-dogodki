@@ -31,9 +31,30 @@ export async function scrapeWebsite(
       ],
     };
 
-    // Use Chrome binary path if available (set by buildpack)
-    if (process.env.GOOGLE_CHROME_BIN) {
-      launchOptions.executablePath = process.env.GOOGLE_CHROME_BIN;
+    // Try multiple possible Chrome paths
+    const possibleChromePaths = [
+      process.env.GOOGLE_CHROME_BIN,
+      process.env.CHROME_BIN,
+      "/app/.chrome-for-testing/chrome-linux64/chrome",
+      "/usr/bin/google-chrome",
+      "/usr/bin/chromium-browser",
+      "/opt/google/chrome/chrome",
+    ];
+
+    console.log("Checking Chrome paths:");
+    possibleChromePaths.forEach((path, index) => {
+      console.log(`${index + 1}. ${path || "undefined"}`);
+    });
+
+    const chromePath = possibleChromePaths.find((path) => path);
+
+    if (chromePath) {
+      launchOptions.executablePath = chromePath;
+      console.log("Using Chrome at:", chromePath);
+    } else {
+      console.log(
+        "No Chrome executable found. Trying without executablePath..."
+      );
     }
 
     browser = await puppeteer.launch(launchOptions);
@@ -92,11 +113,10 @@ export async function scrapeWebsite(
     console.error("Error scraping data:", error);
 
     // Log environment info for debugging
-    console.log("Chrome binary path:", process.env.GOOGLE_CHROME_BIN);
-    console.log(
-      "Chrome executable available:",
-      process.env.GOOGLE_CHROME_BIN ? "Yes" : "No"
-    );
+    console.log("Environment variables:");
+    console.log("GOOGLE_CHROME_BIN:", process.env.GOOGLE_CHROME_BIN);
+    console.log("CHROME_BIN:", process.env.CHROME_BIN);
+    console.log("NODE_ENV:", process.env.NODE_ENV);
 
     throw error;
   } finally {
